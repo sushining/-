@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../css/index.css">
+    <title>仿软件学院</title>
+</head>
+<body>
+         <div class = "header">
+
+    </div>
+    <div class = "daoHang">
+      <ul class="daoHangmid">
+        <li>
+          <a href="">
+            <p>
+              首页
+            </p>
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <p>
+              学院概况
+            </p>
+          </a>
+          <ul>
+            <li><a href="学校概括.html">学校简介</a></li>
+            <li><a href="#">专业介绍</a></li>
+            <li><a href="机构设置.html">机构设置</a></li>
+            <li><a href="#">媒体报道</a></li>
+            <li><a href="#">现任领导</a></li>
+            <li><a href="#">English</a></li>
+            </ul>
+        </li>
+        <li>
+          <a href="">
+            <p>
+              党群工作
+            </p>
+          </a>
+          <ul>
+            <li><a href="#">党务工作</a></li>
+            <li><a href="#">工会之家</a></li>
+            <li><a href="#">理论学习</a></li>
+            </ul>
+        </li>
+        <li>
+          <a href="">
+            <p>
+              院务工作
+            </p>
+          </a>
+          <ul>
+            <li><a href="#">学校新闻</a></li>
+            <li><a href="#">院内文件</a></li>
+            </ul>
+        </li>
+        <li>
+          <a href="">
+            <p>
+              教务工作
+            </p>
+          </a>
+          <ul>
+            <li><a href="#">教务方案</a></li>
+            <li><a href="#">培养方案</a></li>
+            <li><a href="#">教务文件</a></li>
+            <li><a href="#">表格下载</a></li>
+            </ul>
+        </li>
+        <li>
+          <a href="">
+            <p>
+              学生管理
+            </p>
+          </a>
+          <ul>
+            <li><a href="#">团学工作</a></li>
+            <li><a href="#">通知公告</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="">
+            <p>
+              校地合作
+            </p>
+          </a>
+          <ul>
+            <li><a href="#">招生信息</a> </li>
+            <li><a href="#">就业创业</a> </li>
+            <li><a href="#">科技园工作</a> </li>
+          </ul>
+        </li>
+        <li>
+          <a href="">
+            <p>
+              院长信箱
+            </p>
+          </a>
+        </li>
+        <li>
+          <a href="">
+            <p>
+              工程认证
+            </p>
+          </a>
+          <ul>
+            <li><a href="#">文件资料</a> </li>
+            <li><a href="#">专业介绍</a> </li>
+            <li><a href="#">认证培训</a> </li>
+            <li><a href="#">工作动态</a> </li>
+            <li><a href="#">人才培训</a> </li>
+          </ul>
+        </li>
+        <li>
+          <a href="">
+            <p>
+              常用导航
+            </p>
+          </a>
+          <ul>
+            <li><a href="#">常用导航</a> </li>
+            <li><a href="#">管理入口</a> </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class = "border">
+        <div class = "wrap">
+            <ul class = "List">
+                <li class = "item active"data-index="0">
+                    <a href="">
+                        <img src="../img/1.png" alt="">
+                    </a>
+                </li>
+                <li class = "item"data-index="1">
+                    <a href="">
+                        <img src="../img/2.jpg" alt="">
+                    </a>
+                </li>
+                <li class = "item"data-index="2">
+                    <a href="">
+                        <img src="../img/3.png" alt="">
+                    </a>
+                </li>
+            </ul>
+            <div class = "juzhong">
+                <ul class = "pointList">
+                    <li class = "point active" data-index="0"></li>
+                    <li class = "point" data-index="1"></li>
+                    <li class = "point" data-index="2"></li>
+                </ul>
+            </div>
+
+            <button type = "button" class = "btn" id = "goPre"> < </button>
+            <button  type = "button" class = "btn" id = "goNext"> > </button>
+
+        </div>
+    </div>
+        <script type = "text/javascript">
+            var items = document.getElementsByClassName('item');
+            var points = document.getElementsByClassName('point');
+            var goPreBtn = document.getElementById('goPre');
+            var goNextBtn = document.getElementById('goNext');
+
+
+            var index = 0;//index表示第几张图片在展示  也就是说第几张图片具有active类名
+
+            var time = 0;
+            //清除掉上一个图片上的item active 类名
+            var clearActive = function(){
+                for(var i = 0;i<items.length;i++){
+                    items[i].className = 'item';
+                }
+                for(var i = 0;i<points.length;i++){
+                    points[i].className = 'point';
+                }
+            }
+            var goIndex = function(){
+            clearActive();
+                points[index].className = 'point active';
+            items[index].className = 'item active'; //把需要显示的图片附上item active类名
+            }
+
+            var goNext = function(){
+                if(index < 2){
+                    index ++;
+                }else{
+                    index = 0;
+                }
+                goIndex();
+            }
+
+            var goPre = function(){
+                if(index == 0){
+                    index = 2;
+                }else{
+                    index --;
+                }
+                goIndex();
+            }
+            goNextBtn.addEventListener('click',function(){
+                    goNext();
+            })
+
+            goPreBtn.addEventListener('click',function(){
+                goPre();
+            })
+
+            for(var i = 0; i < points.length; i++){
+                points[i].addEventListener('click',function(){
+                        var pointIndex = this.getAttribute('data-index');
+                        index = pointIndex;
+                        goIndex();
+                        time = 0;
+                })
+            }
+
+
+            setInterval(function(){
+                time ++;
+                if(time == 20) {
+                    goNext();
+                    time = 0;
+                }
+            },100)
+        </script>
+        <div class = "borderBottom">
+            <div class ="borderBottomLeft">
+                <div class = "borderBottomLeftLeft">
+                    <ul>
+                        <li>
+                            <img src="../img/5.png" alt="">
+                            <span style = "font-size:18px;margin-right:260px;">学院新闻</span>
+                            <span style="color: #007aff">更多</span>
+                        </li>
+                        <li>
+                            <div class ="left">
+                                <p style="color: #007aff">武汉大学博导董文永教授来校作“国家自然科学基金项目申报相关事宜”讲座</p>
+                            </div>
+                            <div class ="right">
+                                <p style="color: #19469D"> 10-31</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class ="left">
+                                <p style="color: #007aff"> 软件学院师生党员赴信阳新县开展主题党日活动</p>
+                            </div>
+                            <div class ="right">
+                                   <p style="color: #19469D">10-25</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class ="left">
+                                <p style="color: #007aff"> 软件学院2019学生干部培训活动成功举行</p>
+                            </div>
+                            <div class ="right">
+                                <p style="color: #19469D"> 10-22</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class ="left">
+                                <p style="color: #007aff">软件学院“消防安全培训”讲座顺利召开</p>
+                            </div>
+                            <div class ="right">
+                                <p style="color: #19469D"> 10-23</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class ="left">
+                                <p style="color: #007aff">软件学院“不忘初心，牢记使命”主题教育讲座成功举办</p>
+                            </div>
+                            <div class ="right">
+                                <p style="color: #19469D">10-19</p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class ="left">
+                                <p style="color: #007aff">软件学院学生在第五届CCPC中国大学生程序设计竞赛（秦皇岛） 中取得佳绩</p>
+                            </div>
+                            <div class ="right">
+                                <p style="color: #19469D"> 09-26</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class = "borderBottomRight">
+                <div class = "borderBottomRightRight">
+                    <ul>
+                        <li>
+                            <img src="../img/6.png" alt="">
+                            <span style ="font-size:18px;margin-right:165px;">通知公告</span>
+                            <span style="color: #007aff">更多</span> <br>
+
+                          <hr color="#48D1CC">
+                        </li>
+                      <br>
+                        <li>
+                            <p>软件学院致2019届毕业生的公开信</p>
+                            <p style ="width: 70% color: #007aff "> 2019-05-06</p>
+                          <br>
+                          <hr color=#48D1CC>
+                        </li>
+                      <br>
+                        <li>
+                                <p>软件学院经济困难认定学生名单（714人）</p>
+                                <p style ="width: 70%"> 2019-10-11</p>
+                          <br>
+                          <hr color=#48D1CC>
+                        </li>
+                      <br>
+                        <li>
+                                <p>软件学院2019年度家庭经济困难学生认定办法</p>
+                                <p style ="width: 70%"> 2019-10-10</p>
+                          <br>
+                          <hr color=#48D1CC>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class ="footerTop">
+            <ul>
+                <a href="">
+                    <li style = "border-right:1px solid rgb(177, 172, 172);">
+                        <img src="../img/13.png" alt="">
+                    </li>
+                </a>
+                <a href="">
+                    <li style = "border-right:1px solid rgb(177, 172, 172);">
+                        <img src="../img/11.png" alt="">
+                    </li>
+                </a>
+                <a href="">
+                    <li style = "border-right:1px solid rgb(177, 172, 172);">
+                        <img src="../img/10.png" alt="">
+                    </li>
+                </a>
+                <a href="">
+                    <li>
+                        <img src="../img/12.png" alt="">
+                    </li>
+                </a>
+            </ul>
+        </div>
+
+        <div class ="footer">
+            <div class ="footershang">
+                <ul>
+                    <li style = "width:25%;">
+                        <img src="../img/logo.png"width ="50%"height ="50%" style = "margin-top:25px;margin-left:150px;"alt="">
+                    </li>
+                    <li  style = "width:15%;">
+                        <p style = "margin-top:35px;">中国 河南 南阳市长江路80号</p>
+                    </li>
+                    <li  style = "width:35%;">
+                        <p style = "margin-top:35px;">Address: 80 changjiang road, nanyang city, henan province, China</p>
+                    </li>
+                    <li  style = "width:25%;">
+                        <img src="../img/10.bmp" height = "100px"alt="">
+                    </li>
+                </ul>
+            </div>
+            <div class ="footerxia">
+                <p style ="font-size:13px;text-align:center;">
+                    南阳理工学院软件学院版权所有 Copyright © 2017 南工软件学院 School of Software
+                </p>
+            </div>
+        </div>
+</body>
+</html>
